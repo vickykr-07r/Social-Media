@@ -1,0 +1,116 @@
+/* --- Variables for Theming --- */
+:root {
+  --primary-color: #007bff; /* Blue for submit button/accents */
+  --secondary-color: #6c757d; /* Grey for placeholders/secondary text */
+  --background-dark: #1a1a2e; /* Dark background */
+  --background-light: #2c2c43; /* Slightly lighter box background */
+  --text-color: #ffffff; /* White text */
+  --input-border: #4a4a6b;
+  --input-focus: #4d94ff;
+  --glass-blur: 10px;
+  --glass-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Global Container Styling --- */
+.Container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background-dark) 0%, #0f0f1c 100%);
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+/* --- Login Box (Glassmorphism Effect) --- */
+.box {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 20px;
+  background: rgba(44, 44, 67, 0.7); /* Background with transparency */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Subtle white border */
+  box-shadow: 0 8px 32px 0 var(--glass-shadow);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 var(--glass-shadow), 0 0 0 5px var(--primary-color) inset;
+}
+
+/* --- Form and Input Styling --- */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between inputs and button */
+}
+
+.form input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid var(--input-border);
+  border-radius: 10px;
+  background-color: var(--background-light);
+  color: var(--text-color);
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form input::placeholder {
+  color: var(--secondary-color);
+  opacity: 0.8;
+}
+
+.form input:focus {
+  border-color: var(--input-focus);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.4);
+}
+
+/* --- Submit Button Styling --- */
+.form button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form button:active {
+  transform: translateY(0);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 480px) {
+  .box {
+    padding: 30px;
+    margin: 10px;
+  }
+
+  .form input, .form button {
+    font-size: 15px;
+    padding: 12px 15px;
+  }
+}
