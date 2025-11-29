@@ -1,5 +1,6 @@
 import { User } from "../Models/user.model.js";
 import { isAuth } from "../Middlewares/isAuth.Middlewares.js";
+import uploadoncloudinary from "../Config/cloudinary.js";
 export const currentUser = async (req, res) => {
   try {
     const user = await User.findById(req.userId).select("-password"); 
@@ -37,4 +38,44 @@ export const otheruser = async (req, res) => {
     });
   }
 };
+
+export const editprofile=async(req,res)=>{
+try {
+  const{name,username,bio,profession,gender}=req.body;
+  const user=await User.findById(req.userId).select("-password")
+  if(!user){
+    return res.status(400).json({
+      message:"user not found"
+    })
+  }
+  const sameuserwithusername=await User.findOne({username})
+  if(sameuserwithusername && sameuserwithusername._id.toString() !== req.userId){
+    return res.status(400).json({
+      message:"username already exist"
+    })
+  }
+  let profileimage;
+  if(req.file)
+  {
+    profileimage=await uploadoncloudinary(req.file.path)
+  }
+  user.name=name;
+  user.username=username;
+  user.bio=bio;
+  user.profession=profession;
+  user.gender=gender;
+  
+   if (profileimage) {
+      user.profileimage = profileimage;
+    }
+
+  await user.save();
+
+  return res.status(200).json(user)
+} catch (error) {
+  return res.status(500).json({
+      message:`error on editprofile backend ${error}`
+    })
+}
+}
 

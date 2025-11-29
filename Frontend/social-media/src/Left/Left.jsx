@@ -45,7 +45,6 @@ function Left() {
         </div>
         <Otherfollowers/>
       </div>
-      <Feed/>
     </div>
   );
 }

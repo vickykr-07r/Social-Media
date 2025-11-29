@@ -1,59 +1,65 @@
+/* Main card */
 .container {
-  width: 30%;
+  width: 100%;
+  background: #ffffff;
+  padding: 10px 12px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 14px;
-  background: #ffffff;
-  border-radius: 16px;
-  margin: 12px 0;
-  border: 1px solid #e8e8e8;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  transition: 0.2s;
 }
 
 .container:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-/* USER IMAGE */
-.container img {
-  width: 58px;
-  height: 58px;
+/* Profile Image wrapper */
+.profilePic img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ddd;
+  background: #eee;
 }
 
-/* USER NAME */
-.container h2 {
-  font-size: 17px;
-  margin: 0;
+/* Name + username */
+.name {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Take full space */
+}
+
+.name h2 {
+  font-size: 13px;
   font-weight: 600;
+  margin: 0;
   color: #222;
 }
 
-.container h3 {
-  font-size: 14px;
-  margin: 0;
-  color: #666;
+.name h3 {
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 3px;
+  color: #777;
+  text-transform: lowercase;
 }
 
-/* FOLLOW BUTTON */
-.container button {
-  margin-left: auto;
-  padding: 7px 16px;
-  background: #0095f6;
-  color: white;
-  border-radius: 8px;
+/* Follow button section */
+.button button {
+  padding: 6px 12px;
+  font-size: 12px;
+  background: #0095ff;
   border: none;
-  font-size: 14px;
+  border-radius: 8px;
   font-weight: 600;
+  color: white;
   cursor: pointer;
-  transition: 0.3s ease;
+  white-space: nowrap;
 }
 
-.container button:hover {
-  background: #0077cc;
+.button button:hover {
+  background: #0078db;
 }

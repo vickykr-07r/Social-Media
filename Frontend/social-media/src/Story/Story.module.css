@@ -1,13 +1,29 @@
-/* Outer story container */
+/* STORY ROW - All stories in one horizontal line */
+.storyRow {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;  /* Firefox */
+}
+
+.storyRow::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Edge */
+}
+
+/* SINGLE STORY ITEM */
 .container {
   width: 85px;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+  user-select: none;
 }
 
-/* Gradient border ring */
+/* GRADIENT BORDER RING */
 .box {
   width: 70px;
   height: 70px;
@@ -20,11 +36,12 @@
   transition: transform 0.25s ease;
 }
 
+/* HOVER EFFECT */
 .box:hover {
   transform: scale(1.08);
 }
 
-/* Profile image */
+/* PROFILE IMAGE */
 .box img {
   width: 100%;
   height: 100%;
@@ -34,7 +51,7 @@
   padding: 3px;
 }
 
-/* Username text */
+/* USER NAME UNDER STORY */
 .container h2 {
   font-size: 13px;
   margin-top: 6px;

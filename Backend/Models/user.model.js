@@ -26,7 +26,20 @@ let UserSchema= new mongoose.Schema({
     profileimage:{
     type:String,
     },
+    
+    bio:{
+    type:String,
+    },
 
+    profession:{
+    type:String,
+    },
+    
+    gender:{
+    type:String,
+    enum:["male","female"]
+    },
+    
     followers:[
         {type:mongoose.Schema.Types.ObjectId,
             ref:"User"

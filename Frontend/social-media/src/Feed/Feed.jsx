@@ -4,11 +4,15 @@ function Feed(){
     return(
     <>
     <div className={Style.container}>
-        <div className={Style.story}>
+        <div className={Style.storyRow}>
          <Story name="vicky"/> 
          <Story name="vicky"/> 
          <Story name="vicky"/> 
          <Story name="vicky"/> 
+         <Story name="vicky"/> 
+         <Story name="vicky"/> 
+         <Story name="vicky"/> 
+         <Story name="vicky"/>
         </div>
     </div>
     </>)

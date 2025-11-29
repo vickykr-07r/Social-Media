@@ -9,10 +9,16 @@ function otherfollowers(){
          return (
         
     <div key={user._id} className={Style.container}>
-        <img src={user.profilePic} alt="" />
-        <h2>{user.name}</h2>
+          <div className={Style.profilePic}>
+          <img src={user.profilePic} alt="" />
+          </div>
+          <div className={Style.name}>
+           <h2>{user.name}</h2>
         <h3>{user.username}</h3>
-        <button>Follow</button>
+          </div>
+         <div className={Style.button}>
+          <button>Follow</button>
+         </div>
       </div>
     );
   })

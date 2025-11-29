@@ -1,0 +1,24 @@
+.container {
+  width: 40%;
+  height: 100vh;
+  background-color: #ffffff;
+  position: fixed;
+  left: 30%;   
+  top: 0;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+}
+.storyRow {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.storyRow::-webkit-scrollbar {
+  display: none;
+}

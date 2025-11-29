@@ -7,7 +7,7 @@ dotenv.config();
 app.use(express.json())
 
 import cors from "cors"
-app.use(cors({
+app.use(cors({ 
     origin: "http://localhost:5173",
     credentials: true
 }));
