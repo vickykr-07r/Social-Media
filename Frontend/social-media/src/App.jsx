@@ -8,6 +8,7 @@ import { setUserData } from "./Redux/userslice.js"
 import { useEffect } from "react"
 import { Getcurrentuser } from "./Hooks/Getcurrentuser.jsx"
 import Getsuggesteduser from "./Hooks/Getsuggesteduser.jsx"
+import Profile from "./Profile/Profile.jsx"
 function App() {
   Getcurrentuser()
   let {userData}=useSelector((state)=>state.user)
@@ -19,6 +20,8 @@ function App() {
   <Route path="/login" element={!userData ? <Login /> :<Navigate to="/"/> } />
   <Route path="/signup" element={!userData ? <Signup /> : <Navigate to="/"/>} />
   <Route path="/resetpassword" element={<ResetPassword />} />
+  <Route path="/profile/:username" element={<Profile />} />
+
   </Routes>
 
     </>
