@@ -4,15 +4,14 @@ import { useNavigate } from "react-router-dom"
 function otherfollowers(){
     let {otherUserData}=useSelector((state)=>state.user)
     let navigate=useNavigate();
-    let {userData}=useSelector(state=>state.user)
+    let {userData,profileData}=useSelector(state=>state.user)
     return(
         <>
         {otherUserData &&
          otherUserData.slice(0,3).map((user) => {
          return (
         
-    <div key={user._id} className={Style.container} onClick={() => navigate(`/profile/${userData.username}`)}
->
+    <div key={user._id} className={Style.container} onClick={() => navigate(`/profile/${user.username}`)}>
           <div className={Style.profilePic}>
           <img src={user.profilePic} alt="" />
           </div>

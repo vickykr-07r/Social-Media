@@ -11,7 +11,7 @@ function Feed(){
     const {userData} = useSelector(state=>state.user)
     const navigate=useNavigate()
     function navigatee(){
-        navigate("/profile")
+        navigate(`/profile/${userData.username}`)
     }
     return(
     <>

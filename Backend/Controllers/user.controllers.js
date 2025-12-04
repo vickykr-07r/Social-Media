@@ -1,6 +1,7 @@
 import { User } from "../Models/user.model.js";
 import { isAuth } from "../Middlewares/isAuth.Middlewares.js";
 import uploadoncloudinary from "../Config/cloudinary.js";
+
 export const currentUser = async (req, res) => {
   try {
     const user = await User.findById(req.userId).select("-password"); 
@@ -77,5 +78,27 @@ try {
       message:`error on editprofile backend ${error}`
     })
 }
-}
+};
+
+export const profile = async (req, res) => {
+  try {
+    const username = req.params.username;
+
+    const user = await User.findOne({ username }).select("-password");
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(500).json({
+      message: `Error fetching profile: ${error.message}`,
+    });
+  }
+};
+
+
 

@@ -1,0 +1,194 @@
+/* Main Wrapper */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+/* Top Navigation */
+.nav {
+  width: 100%;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 18px;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.arroe {
+  font-size: 26px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.arroe:hover {
+  transform: translateX(-3px);
+  opacity: 0.8;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.logout button {
+  padding: 6px 12px;
+  border: none;
+  background: #ff5252;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.25s ease;
+}
+
+.logout button:hover {
+  background: #e11b1b;
+}
+
+/* Profile DP & Bio Section */
+.bioimage {
+  display: flex;
+  padding: 20px;
+  gap: 22px;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.bioimageleft img {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e1e1e1;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
+}
+
+.bioimageright {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bioimageright span:nth-child(1) {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+}
+
+.bioimageright span:nth-child(2) {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Stats Row */
+.countfollowing {
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  padding: 14px 0;
+  margin-top: 8px;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.posts,
+.followers,
+.following {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.posts h1,
+.followers h1,
+.following h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+}
+
+.posts p,
+.followers p,
+.following p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Edit Profile Button */
+.editprofile {
+  display: flex;
+  justify-content: center;
+  margin: 18px 0;
+}
+
+.editprofile button {
+  width: 88%;
+  padding: 12px 0;
+  border: 1px solid #333;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.editprofile button:hover {
+  background: #f2f2f2;
+  transform: translateY(-1px);
+}
+
+/* Footer Navigation */
+.footer {
+  width: 100%;
+  height: 60px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.footer svg {
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.footer svg:hover {
+  opacity: 0.7;
+  transform: scale(1.08);
+}
+
+.footer img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  transition: 0.2s ease;
+}
+
+.footer img:hover {
+  transform: scale(1.07);
+}

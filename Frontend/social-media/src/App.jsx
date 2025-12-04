@@ -9,6 +9,7 @@ import { useEffect } from "react"
 import { Getcurrentuser } from "./Hooks/Getcurrentuser.jsx"
 import Getsuggesteduser from "./Hooks/Getsuggesteduser.jsx"
 import Profile from "./Profile/Profile.jsx"
+import EditProfile from "./EditProfile/EditProfile.jsx"
 function App() {
   Getcurrentuser()
   let {userData}=useSelector((state)=>state.user)
@@ -21,7 +22,7 @@ function App() {
   <Route path="/signup" element={!userData ? <Signup /> : <Navigate to="/"/>} />
   <Route path="/resetpassword" element={<ResetPassword />} />
   <Route path="/profile/:username" element={<Profile />} />
-
+  <Route path="/editprofile" element={<EditProfile/>} />
   </Routes>
 
     </>
