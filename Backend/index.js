@@ -17,7 +17,7 @@ import connectdb from "../Backend/Database/connectdb.js"
 
 import cookieParser from "cookie-parser";
 app.use(cookieParser())
-
+ 
 import { authRouter } from "./Routes/auth.route.js";
 app.use("/api/auth",authRouter)
 

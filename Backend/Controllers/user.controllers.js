@@ -4,7 +4,7 @@ import uploadoncloudinary from "../Config/cloudinary.js";
 
 export const currentUser = async (req, res) => {
   try {
-    const user = await User.findById(req.userId).select("-password"); 
+    const user = await User.findById(req.userId).select("-password").populate("posts"); 
 
     if (!user) {
       return res.status(404).json({

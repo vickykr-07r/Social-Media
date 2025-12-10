@@ -7,16 +7,20 @@ import { useContext } from "react";
 import { ServerurlContext } from "../Context/Serverurl";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { setUserData } from "../Redux/userslice";
 function EditProfile(){
     const {userData}=useSelector(state=>state.user)
     let{serverurl}=useContext(ServerurlContext)
-    console.log(serverurl)
+   
     let[forrmData,setFormData]=useState({
+      name:"",
+      username:"",
       bio:"",
       profession:"",
       gender:""
     })
+    let navigate=useNavigate();
     let[image,setImage]=useState(null)
     let[preimage,setpreImage]=useState(null)
     function handleinpt(event){
@@ -32,14 +36,27 @@ function EditProfile(){
 }
 
     const ref=useRef();
+    const dispatch =useDispatch()
     async function handlesubmit(){
        const formData = new FormData();
        formData.append("bio",forrmData.bio);
        formData.append("profession",forrmData.profession);
        formData.append("gender",forrmData.gender);
        formData.append("profileimage",image)
+       formData.append("name",forrmData.name)
+       formData.append("username",forrmData.username)
       try {
         let result =await axios.post(`${serverurl}/api/user/editprofile`,formData,{withCredentials:true})
+        console.log(result.data)
+        navigate("/")
+        dispatch(setUserData(result.data))
+        setFormData({...forrmData,
+          name:"",
+          username:"",
+          bio:"",
+          profession:"",
+          gender:""
+        })
       } catch (error) {
         console.log(error)
       }
@@ -60,8 +77,8 @@ function EditProfile(){
      </div>
 
      <div className={Style.form}>
-     <input type="text" placeholder={userData?.name} readOnly className={Style.a} />
-     <input type="text" placeholder={userData?.username} readOnly className={Style.a} />
+     <input type="text" placeholder={userData?.name}  value={forrmData.name} onChange={handleinpt} name="name"/>
+     <input type="text" placeholder={userData?.username}   value={forrmData.username} onChange={handleinpt} name="username"/>
      <input type="text" placeholder="Bio" value={forrmData.bio} onChange={handleinpt} name="bio"/>
      <input type="text" placeholder="Profession" value={forrmData.profession} onChange={handleinpt} name="profession"/>
      <input type="text" placeholder="Gender" value={forrmData.gender} onChange={handleinpt} name="gender"/>
